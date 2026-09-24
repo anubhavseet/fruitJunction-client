@@ -10,8 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^4.3.1",
+    "graphql": "^16.14.2",
+    "lucide-react": "^1.47.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.18.4",
+    "sonner": "^2.0.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

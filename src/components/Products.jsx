@@ -1,10 +1,20 @@
+import { useNavigate, Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useBackground } from '../context/BackgroundContext';
+import { useCart } from '../context/CartContext';
 
 const Products = () => {
+  const navigate = useNavigate();
   const [offersRef, offersVisible] = useScrollAnimation({ threshold: 0.1, once: true });
   const [popularRef, popularVisible] = useScrollAnimation({ threshold: 0.1, once: true });
   const { currentBackground } = useBackground();
+  const { addToCart, loading } = useCart();
+
+  const handleAddToCart = async (product) => {
+    await addToCart(product.id, 1);
+    navigate('/menu', { state: { justAdded: product.name } });
+  };
+
   const specialOffers = [
     {
       id: 1,
@@ -35,7 +45,7 @@ const Products = () => {
     },
     {
       id: 4,
-      name: 'Paneer Protein Salad',
+      name: 'Paneer Protein Salad Classic',
       originalPrice: 239,
       salePrice: 189,
       category: 'Paneer Based Protein Salad',
@@ -47,27 +57,27 @@ const Products = () => {
   const popularProducts = [
     {
       id: 5,
-      name: 'Creamy Fruit Bowl',
-      price: 299,
+      name: 'Creamy Fruit Bowl Deluxe',
+      price: 249,
       category: 'Fresh Mixed Fruit Salad',
       image: '/images/products/creamy_fruit_bowl.png'
     },
     {
-      id: 6,
+      id: 9,
       name: 'Loki Mint Detox Juice – 300 ML',
-      price: 129,
+      price: 99,
       category: 'Healthy Detox Juices',
       image: '/images/products/green_detox_juice.png'
     },
     {
-      id: 7,
-      name: 'Lemon Juice – 300 ML',
+      id: 13,
+      name: 'Pure Cold Pressed Orange Juice',
       price: 129,
-      category: 'Healthy Detox Juices',
+      category: 'Fresh Fruit Juices',
       image: '/images/products/orange_juice.png'
     },
     {
-      id: 8,
+      id: 10,
       name: 'Amla Anar Detox Juice – 300 ML',
       price: 129,
       category: 'Healthy Detox Juices',
@@ -83,17 +93,28 @@ const Products = () => {
         <span className="sale-badge">SALE</span>
       )}
       <div className="product-image">
-        <img
-          src={product.image}
-          alt={product.name}
-          loading="lazy"
-        />
+        <Link to={`/product/${product.id}`} style={{ display: 'block', width: '100%', height: '100%' }}>
+          <img
+            src={product.image}
+            alt={product.name}
+            loading="lazy"
+          />
+        </Link>
         <div className="product-image-overlay">
-          <button className="quick-view-btn">Quick View</button>
+          <button
+            className="quick-view-btn"
+            onClick={() => navigate(`/product/${product.id}`)}
+          >
+            Quick View
+          </button>
         </div>
       </div>
       <div className="product-info">
-        <h3 className="product-name">{product.name}</h3>
+        <h3 className="product-name">
+          <Link to={`/product/${product.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+            {product.name}
+          </Link>
+        </h3>
         <p className="product-category">{product.category}</p>
         <div className="product-price">
           {product.onSale ? (
@@ -105,7 +126,11 @@ const Products = () => {
             <span className="current-price">₹{product.price}</span>
           )}
         </div>
-        <button className="add-to-cart-btn">
+        <button
+          className="add-to-cart-btn"
+          onClick={() => handleAddToCart(product)}
+          disabled={loading}
+        >
           Add to Cart
         </button>
       </div>

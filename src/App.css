@@ -594,6 +594,208 @@ body {
   font-weight: 600;
 }
 
+/* Header Auth Buttons */
+.auth-header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-header-login {
+  color: var(--dark-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 20px;
+  transition: var(--transition);
+}
+
+.btn-header-login:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--secondary-color);
+}
+
+.btn-header-register {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--dark-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(252, 180, 36, 0.3);
+  transition: var(--transition);
+}
+
+.btn-header-register:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(252, 180, 36, 0.45);
+}
+
+/* User Menu & Dropdown */
+.user-menu-container {
+  position: relative;
+}
+
+.user-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.35rem 0.75rem 0.35rem 0.35rem;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(8px);
+}
+
+.user-profile-btn:hover {
+  background: #ffffff;
+  border-color: var(--secondary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--dark-color);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.user-name-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--dark-color);
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+  color: #666;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.user-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 240px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 0.75rem;
+  z-index: 1000;
+  animation: fadeInUp 0.2s ease forwards;
+}
+
+.dropdown-user-info {
+  padding: 0.5rem 0.5rem 0.75rem;
+}
+
+.dropdown-user-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--dark-color);
+  margin-bottom: 2px;
+}
+
+.dropdown-user-email {
+  font-size: 0.8rem;
+  color: #777;
+  word-break: break-all;
+  margin-bottom: 6px;
+}
+
+.user-role-badge {
+  display: inline-block;
+  background: rgba(252, 180, 36, 0.15);
+  color: #b87a00;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 0.4rem 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 205, 5, 0.12);
+  color: var(--dark-color);
+}
+
+.dropdown-item.admin-item {
+  color: #c2410c;
+}
+
+.dropdown-item.admin-item:hover {
+  background: rgba(234, 88, 12, 0.1);
+}
+
+.dropdown-item.logout-item {
+  color: #dc2626;
+}
+
+.dropdown-item.logout-item:hover {
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.mobile-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 0.5rem 1rem !important;
+}
+
+.mobile-logout-btn {
+  background: none;
+  border: none;
+  color: #dc2626;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  text-align: left;
+}
+
 .mobile-menu-btn {
   display: none;
   flex-direction: column;

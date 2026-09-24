@@ -1,0 +1,235 @@
+.dashboard-page-wrapper {
+  min-height: 100vh;
+  background: radial-gradient(circle at 10% 20%, rgba(255, 205, 5, 0.04) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(252, 180, 36, 0.06) 0%, transparent 40%),
+              #fafafa;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-main-content {
+  flex: 1;
+  max-width: 1200px;
+  margin: 100px auto 4rem;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+/* User Greeting Banner */
+.dashboard-user-card {
+  background: linear-gradient(135deg, #ffffff, #fbfbfb);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.user-profile-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.user-avatar-lg {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color, #ffcd05), var(--secondary-color, #fcb424));
+  color: #0a0500;
+  font-weight: 800;
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(252, 180, 36, 0.35);
+}
+
+.user-text-info h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.user-text-info p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.dashboard-tabs-bar {
+  display: flex;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.dashboard-tab-btn {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #777;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dashboard-tab-btn:hover {
+  color: #222;
+}
+
+.dashboard-tab-btn.active {
+  color: var(--dark-color, #0a0500);
+  border-bottom-color: var(--secondary-color, #fcb424);
+}
+
+/* Orders List */
+.orders-list-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.order-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.order-id-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.order-id-txt {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #1a1a1a;
+}
+
+.order-date-txt {
+  font-size: 0.82rem;
+  color: #888;
+}
+
+.status-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-confirmed {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-preparing {
+  background: #f3e8ff;
+  color: #7e22ce;
+}
+
+.status-out_for_delivery {
+  background: #fed7aa;
+  color: #c2410c;
+}
+
+.status-delivered {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-cancelled {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.order-items-table {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.order-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.order-item-title {
+  color: #333;
+  font-weight: 600;
+}
+
+.order-item-quant {
+  color: #888;
+  font-size: 0.82rem;
+}
+
+.order-item-price {
+  font-weight: 700;
+  color: #111;
+}
+
+.order-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 0.88rem;
+}
+
+.order-footer-address {
+  color: #666;
+  max-width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.order-footer-total {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #1a1a1a;
+}

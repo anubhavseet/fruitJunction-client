@@ -1,16 +1,18 @@
 import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { BackgroundProvider } from './context/BackgroundContext';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import ProductCategories from './components/ProductCategories';
-import Products from './components/Products';
-import Menu from './components/Menu';
-import Services from './components/Services';
-import About from './components/About';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import AnimatedBackground from './components/AnimatedBackground';
+import ProtectedRoute from './components/ProtectedRoute';
+import AdminRoute from './components/AdminRoute';
+import HomePage from './pages/HomePage';
+import MenuPage from './pages/MenuPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+import DashboardPage from './pages/DashboardPage';
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
+import AdminDashboardPage from './pages/AdminDashboardPage';
 import './App.css';
 
 function App() {
@@ -41,19 +43,28 @@ function App() {
   return (
     <BackgroundProvider>
       <div className="App">
-        <AnimatedBackground />
-        <Header />
-        <main>
-          <Hero />
-          <ProductCategories />
-          <Products />
-          <Menu />
-          <Services />
-          <About />
-          <Testimonials />
-          <Contact />
-        </main>
-        <Footer />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/product/:id" element={<ProductDetailsPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/cart" element={
+            <ProtectedRoute><CartPage /></ProtectedRoute>
+          } />
+          <Route path="/checkout" element={
+            <ProtectedRoute><CheckoutPage /></ProtectedRoute>
+          } />
+          <Route path="/dashboard" element={
+            <ProtectedRoute><DashboardPage /></ProtectedRoute>
+          } />
+          <Route path="/order-confirmation/:id" element={
+            <ProtectedRoute><OrderConfirmationPage /></ProtectedRoute>
+          } />
+          <Route path="/admin/*" element={
+            <AdminRoute><AdminDashboardPage /></AdminRoute>
+          } />
+        </Routes>
       </div>
     </BackgroundProvider>
   );
